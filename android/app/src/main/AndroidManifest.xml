@@ -1,16 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Legacy Bluetooth (Android 11 and below) -->
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
 
-    <!-- Android 12+ (API 31+) -->
-    <!-- neverForLocation: We don't need location for BLE scanning, just to find devices -->
+
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     
-    <!-- Location is still needed for legacy scanning on Android 6-11 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application

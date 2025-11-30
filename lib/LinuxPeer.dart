@@ -16,11 +16,10 @@ class _LinuxPeerState extends State<LinuxPeer> {
   final LinuxBluetoothService _bluetoothService = LinuxBluetoothService();
   final TextEditingController _controller = TextEditingController();
 
-  // Store messages as maps: {'sender': 'me'|'phone', 'text': '...'}
   List<Map<String, String>> messages = [];
   String status = "Initializing...";
   bool isConnected = false;
-  List<dynamic> scanResults = []; // Store scan results
+  List<dynamic> scanResults = [];
 
   @override
   void initState() {
@@ -30,7 +29,6 @@ class _LinuxPeerState extends State<LinuxPeer> {
     _bluetoothService.statusStream.listen((newStatus) {
       setState(() {
         status = newStatus;
-        // Simple check for connection status based on string
         isConnected = newStatus.toLowerCase().startsWith("connected to");
       });
     });
@@ -41,7 +39,6 @@ class _LinuxPeerState extends State<LinuxPeer> {
       });
     });
 
-    // Listen for scan results
     _bluetoothService.scanResultsStream.listen((results) {
       setState(() {
         scanResults = results;
@@ -128,7 +125,6 @@ class _LinuxPeerState extends State<LinuxPeer> {
             ),
           ),
 
-          // Device List (Only show when NOT connected)
           if (!isConnected)
             Expanded(
               child: Column(
@@ -171,7 +167,6 @@ class _LinuxPeerState extends State<LinuxPeer> {
               ),
             ),
 
-          // Chat Area (Only show when connected)
           if (isConnected)
             Expanded(
               child: messages.isEmpty
@@ -241,7 +236,6 @@ class _LinuxPeerState extends State<LinuxPeer> {
                     ),
             ),
 
-          // Input Area
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

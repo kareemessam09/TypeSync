@@ -2,7 +2,9 @@
 
 **TypeSync** is a seamless Bluetooth Low Energy (BLE) chat application that bridges the gap between **Android** and **Linux**. It allows for real-time text synchronization and clipboard sharing without requiring an internet connection.
 
-## Key Highlights
+![TypeSync App Screenshot](typesync.png)
+
+## 🌟 Key Highlights
 
 This project features a hybrid architecture to maximize performance and compatibility:
 
