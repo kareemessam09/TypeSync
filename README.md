@@ -4,7 +4,7 @@
 
 ![TypeSync App Screenshot](typesync.png)
 
-## 🌟 Key Highlights
+## Key Highlights
 
 This project features a hybrid architecture to maximize performance and compatibility:
 
@@ -64,7 +64,7 @@ The Linux client is built using Flutter and `flutter_blue_plus`, optimized to ha
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 *   **"Discovered 0 Services" on Linux**: This is usually a BlueZ caching issue. Unpair/Forget the device on both the phone and laptop, then try again.
 *   **Connection Stuck**: Ensure the Android app is open and the status says "BLE Server Running".
