@@ -2,11 +2,11 @@
 
 **TypeSync** is a seamless Bluetooth Low Energy (BLE) chat application that bridges the gap between **Android** and **Linux**. It allows for real-time text synchronization and clipboard sharing without requiring an internet connection.
 
-## 🌟 Key Highlights
+## Key Highlights
 
 This project features a hybrid architecture to maximize performance and compatibility:
 
-### 🤖 **Native Android Implementation (Server)**
+### **Native Android Implementation (Server)**
 **I personally designed and wrote the entire Android BLE Server layer in native Kotlin.** 
 Instead of relying on standard Flutter plugins which often lack advanced peripheral features, I implemented a robust `BluetoothGattServer` directly in the Android embedding.
 
@@ -15,7 +15,7 @@ Instead of relying on standard Flutter plugins which often lack advanced periphe
 *   **Stability**: Handles complex states like `BluetoothGattDescriptor` management and CCCD (Client Characteristic Configuration Descriptor) logic manually to ensure compatibility with Linux BlueZ stacks.
 *   **Method Channels**: A custom bridge connects the high-performance native Kotlin layer with the Flutter UI.
 
-### 🐧 **Linux Implementation (Client)**
+### **Linux Implementation (Client)**
 The Linux client is built using Flutter and `flutter_blue_plus`, optimized to handle the specific quirks of the Linux Bluetooth stack (BlueZ).
 
 *   **Smart Scanning**: Filters devices by Service UUID to instantly find the TypeSync server.
@@ -24,7 +24,7 @@ The Linux client is built using Flutter and `flutter_blue_plus`, optimized to ha
 
 ---
 
-## 🚀 Features
+## Features
 
 *   **Offline Communication**: Works entirely over Bluetooth Low Energy. No Wi-Fi or Data needed.
 *   **Cross-Platform**: Connects your Android phone to your Linux laptop.
@@ -34,34 +34,7 @@ The Linux client is built using Flutter and `flutter_blue_plus`, optimized to ha
 
 ---
 
-## 🛠️ Technical Architecture
-
-### Protocol
-TypeSync uses a custom GATT Service and Characteristic structure:
-
-*   **Service UUID**: `bf27730d-860a-4e09-889c-2d8b6a9e0fe7`
-*   **Characteristic UUID**: `bf27730d-860a-4e09-889c-2d8b6a9e0fe8`
-    *   **Properties**: Read, Write, Notify.
-    *   **Notifications**: Enabled via CCCD (`00002902...`) to allow the phone to push messages to the laptop.
-
-### Project Structure
-
-```
-lib/
-├── AndroidNativePeer.dart        # Android UI (Talks to Native Kotlin)
-├── LinuxPeer.dart                # Linux UI (Talks to Flutter Blue Plus)
-├── services/
-│   ├── android_bluetooth_service.dart  # MethodChannel bridge
-│   └── linux_bluetooth_service.dart    # Linux BLE logic
-└── main.dart                     # Entry point & Platform detection
-
-android/app/src/main/kotlin/com/k9/typesync/
-└── MainActivity.kt               # ⚡ THE CORE: Native BLE Server Implementation
-```
-
----
-
-## 📦 Getting Started
+##  Getting Started
 
 ### Prerequisites
 *   **Android Device**: Running Android 8.0 or higher.
@@ -96,6 +69,4 @@ android/app/src/main/kotlin/com/k9/typesync/
 
 ---
 
-## 📄 License
-
-[MIT License](LICENSE)
+## Feel free to contribute!!
